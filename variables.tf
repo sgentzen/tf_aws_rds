@@ -4,6 +4,7 @@
 
 // RDS Instance Variables
 
+variable "env" {}
 variable "rds_instance_name" {}
 variable "rds_is_multi_az" {
     default = "false"

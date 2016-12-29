@@ -10,6 +10,7 @@ This module makes the following assumptions:
 Input Variables
 ---------------
 
+- `env`
 - `rds_instance_name`
 - `rds_is_multi_az` - Defaults to false. Set to true for a multi-az
   instance.

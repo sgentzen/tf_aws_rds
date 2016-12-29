@@ -7,12 +7,6 @@
 // - A database subnet group
 // - You should want your RDS instance in a VPC
 
-// Provider specific configs
-provider "aws" {
-    access_key = "${var.aws_access_key}"
-    secret_key = "${var.aws_secret_key}"
-    region = "${var.aws_region}"
-}
 
 resource "aws_db_instance" "main_rds_instance" {
     identifier = "${var.rds_instance_name}"
@@ -31,10 +25,18 @@ resource "aws_db_instance" "main_rds_instance" {
     // We want the multi-az setting to be toggleable, but off by default
     multi_az = "${var.rds_is_multi_az}"
     storage_type = "${var.rds_storage_type}"
+    tags {
+        Terraform = "true"
+        Environment = "${var.env}"
+    }
 }
 
 resource "aws_db_subnet_group" "main_db_subnet_group" {
     name = "${var.rds_instance_name}-subnetgrp"
     description = "RDS subnet group"
     subnet_ids = ["${var.subnet_az1}", "${var.subnet_az2}"]
+    tags {
+           Terraform = "true"
+           Environment = "${var.env}"
+    }
 }
