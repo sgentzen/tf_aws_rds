@@ -25,7 +25,7 @@ resource "aws_db_instance" "main_rds_instance" {
     // We want the multi-az setting to be toggleable, but off by default
     multi_az = "${var.rds_is_multi_az}"
     storage_type = "${var.rds_storage_type}"
-    // publicly_accessible = "${var.rds_publicly_accessible}"
+    publicly_accessible = "${var.rds_publicly_accessible}"
     tags {
         Terraform = "true"
         Environment = "${var.env}"

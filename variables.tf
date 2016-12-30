@@ -59,4 +59,5 @@ variable "aws_access_key" {}
 variable "aws_secret_key" {}
 variable "aws_region" {}
 
-// variable "rds_publicly_accessible" {}
+variable "rds_storage_type" {}
+variable "rds_publicly_accessible" {}
